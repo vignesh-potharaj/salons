@@ -26,30 +26,43 @@
 </script>
 
 <script>
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const navbar = document.getElementById('navbar');
 
-  hamburger.addEventListener('click', () => {
+  // Toggle menu
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
     navLinks.classList.toggle('active');
   });
-</script>
 
-<script>
+  // Close menu when clicking a link
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
     });
   });
+
+  // Close menu on outside click
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target)) {
+      navLinks.classList.remove('active');
+    }
+  });
 </script>
 
 
 <body>
-  <!-- FIXED BACKGROUND VIDEO -->
-<video class="testimonials-bg" autoplay muted loop playsinline>
-  <source src="/static/videos/0_Hair_Washing_Salon_3840x2160.mp4" type="video/mp4">
-</video>
+ <!-- GLOBAL BACKGROUND VIDEO -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="/static/videos/0_Hair_Washing_Salon_3840x2160.mp4" type="video/mp4">
+  </video>
 
+  <!-- DARK OVERLAY -->
+  <div class="bg-overlay"></div>
 
+  <!-- PAGE CONTENT WRAPPER -->
+  <div class="page-content">
   <a href="book.html" class="floating-book-btn">
   Book Appointment
 </a>
