@@ -25,6 +25,23 @@
   });
 </script>
 
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+<script>
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+</script>
+
 
 <body>
   <!-- FIXED BACKGROUND VIDEO -->
@@ -41,12 +58,18 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <h1 class="logo">LUXE SALON</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
+    <nav class="nav-links">
+       <a href="index.html">Home</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#visit-us">Visit Us</a>
       <a href="book.html" class="btn">Book Now</a>
     </nav>
+    <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
   </header>
 
   <!-- HERO -->
