@@ -87,6 +87,15 @@ body {
     z-index: 2002; /* ABOVE nav */
   }
 }
+@media (max-width: 768px) {
+  .navbar a {
+    color: #fff;
+  }
+
+  .hamburger span {
+    background: #d4af37;
+  }
+}
 
 .logo {
   color: #d4af37;
@@ -102,6 +111,13 @@ body {
   padding: 5px;
   transition: color 0.25s ease;
   right: 0;
+}
+/* MOBILE: transparent navbar over hero */
+@media (max-width: 768px) {
+  .navbar {
+    background: transparent;
+    box-shadow: none;
+  }
 }
 
 .navbar a::after {

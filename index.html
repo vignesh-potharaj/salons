@@ -26,28 +26,22 @@
 </script>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  const navbar = document.getElementById('navbar');
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
 
-  // Toggle menu
-  hamburger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    navLinks.classList.toggle('active');
-  });
+    if (!hamburger || !navLinks) return;
 
-  // Close menu when clicking a link
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
     });
-  });
 
-  // Close menu on outside click
-  document.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target)) {
-      navLinks.classList.remove('active');
-    }
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        navLinks.classList.remove('active');
+      }
+    });
   });
 </script>
 
@@ -57,14 +51,14 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <h1 class="logo">LUXE SALON</h1>
-    <nav class="nav-links">
+    <nav class="nav-links"  id="navLinks">
        <a href="index.html">Home</a>
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
         <a href="#visit-us">Visit Us</a>
       <a href="book.html" class="btn">Book Now</a>
     </nav>
-    <button class="hamburger" aria-label="Toggle menu">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span>
         <span></span>
         <span></span>
