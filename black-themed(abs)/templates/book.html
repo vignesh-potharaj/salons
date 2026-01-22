@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Appointment | Luxe Salon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/black-themed(abs)/static/css/style.css">
+  <link rel="stylesheet" href="/black-themed(abs)/static/css/booking.css">
+</head>
+<body>
+
+  <!-- NAVBAR (reuse your existing one if shared) -->
+  <header class="navbar">
+    <h1 class="logo">LUXE SALON</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#gallery">Gallery</a>
+    </nav>
+  </header>
+
+  <!-- BOOKING SECTION -->
+  <section class="booking-section">
+    <h2 class="section-title">Book Appointment</h2>
+
+    <form class="booking-form">
+
+      <!-- SERVICE -->
+      <div class="form-group">
+        <label for="service">Service</label>
+        <select id="service" required>
+          <option value="">Select a service</option>
+          <option value="Hair Styling">Hair Styling</option>
+          <option value="Skin & Facial">Skin & Facial</option>
+          <option value="Spa & Relax">Spa & Relax</option>
+        </select>
+      </div>
+
+      <!-- DATE -->
+    <div class="form-group">
+    <label for="date">Date</label>
+    <input type="date" id="date" required>
+    </div>
+
+      <!-- TIME -->
+      <div class="form-group">
+        <label for="time">Time</label>
+        <select id="time" required>
+          <option value="">Select a time</option>
+        </select>
+      </div>
+
+      <!-- NAME -->
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+
+      <!-- PHONE -->
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+      </div>
+
+      <button type="submit" class="btn book-submit">
+        Confirm Appointment
+      </button>
+
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Open Daily · 10:00 AM – 9:00 PM</p>
+    <p>© 2026 Luxe Salon</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    /* AUTO-SELECT SERVICE FROM URL */
+    const params = new URLSearchParams(window.location.search);
+    const selectedService = params.get('service');
+    if (selectedService) {
+      document.getElementById('service').value = selectedService;
+    }
+
+    /* TIME SLOT GENERATION (10 AM – 9 PM) */
+    const timeSelect = document.getElementById('time');
+    const startHour = 10;
+    const endHour = 21;
+
+    for (let hour = startHour; hour < endHour; hour++) {
+      const time = `${hour}:00`;
+      const option = document.createElement('option');
+      option.value = time;
+      option.textContent = time;
+      timeSelect.appendChild(option);
+    }
+
+    /* BASIC SUBMIT (placeholder for backend) */
+    document.querySelector('.booking-form').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Appointment request submitted!');
+    });
+  </script>
+
+</body>
+</html>

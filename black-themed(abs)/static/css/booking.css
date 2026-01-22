@@ -1,0 +1,60 @@
+.booking-section {
+  max-width: 500px;
+  margin: 120px auto 80px;
+  padding: 0 20px;
+}
+
+.booking-form {
+  background: #111;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  background: #000;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 6px;
+}
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+
+.book-submit {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 16px;
+}
+.form-group input {
+  position: relative;
+}
+
+input[type="date"] {
+  appearance: auto;
+  -webkit-appearance: auto;
+  color-scheme: dark;
+  padding-right: 42px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 1;
+  cursor: pointer;
+}

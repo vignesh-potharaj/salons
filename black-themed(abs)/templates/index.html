@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luxury Salon</title>
+  <link rel="stylesheet" href="/black-themed(abs)/static/css/style.css">
+</head>
+<script>
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+</script>
+<script>
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const service = card.dataset.service;
+      window.location.href = `book.html?service=${encodeURIComponent(service)}`;
+    });
+  });
+</script>
+
+
+<body>
+  <a href="book.html" class="floating-book-btn">
+  Book Appointment
+</a>
+
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">LUXE SALON</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="book.html" class="btn">Book Now</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+<section class="hero-slider">
+  <div class="hero-slide active" style="background-image: url('static/images/hero1.jpg');"></div>
+  <div class="hero-slide" style="background-image: url('static/images/hero2.jpg');"></div>
+  <div class="hero-slide" style="background-image: url('static/images/hero3.jpg');"></div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>LUXURY SALON</h1>
+    <p>Style • Beauty • Confidence</p>
+  </div>
+</section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="services-grid" >
+      <div class="service-card" tabindex="0" data-service="Hair Styling">
+        <div class="service-img">
+          <img src="/black-themed(abs)/static/images/hairstyling.jpg" alt="Hair Styling">
+        </div>
+        <h3>Hair Styling</h3>
+        <span class="service-underline"></span>
+        <p>Precision cuts & styling by experts</p>
+      </div>
+
+      <div class="service-card" tabindex="0" data-service="Skin & Facial">
+        <div class="service-img" >
+          <img src="/black-themed(abs)/static/images/facial.jpg" alt="Skin & Facial">
+        </div>
+        <h3>Skin & Facial</h3>
+        <span class="service-underline"></span>
+        <p>Advanced skincare treatments</p>
+      </div>
+
+      <div class="service-card" tabindex="0" data-service="Spa & Relax">
+        <div class="service-img">
+          <img src="/black-themed(abs)/static/images/spa.jpg" alt="Spa & Relax">
+        </div>
+        <h3>Spa & Relax</h3>
+        <span class="service-underline"></span>
+        <p>Relaxing therapies & massages</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section dark">
+    <h2 class="section-title">Gallery</h2>
+      <div class="gallery-grid">
+        <div class="img-box">
+          <img src="/black-themed(abs)/static/images/gallery2.jpg" alt="Salon work 2">
+        </div>
+        <div class="img-box">
+          <img src="/black-themed(abs)/static/images/gallery3.jpg" alt="Salon work 3">
+        </div>
+        <div class="img-box">
+          <img src="/black-themed(abs)/static/images/gallery4.jpg" alt="Salon work 4">
+        </div>
+      </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <h2 class="section-title">What Clients Say</h2>
+    <div class="testimonial">
+      <p>“Best salon experience I’ve ever had.”</p>
+      <span>- Happy Customer</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section dark">
+    <h2 class="section-title">Visit Us</h2>
+    <p>Open Daily: 10:00 AM – 9:00 PM</p>
+    <p>Call: +91 XXXXX XXXXX</p>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Luxe Salon. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
